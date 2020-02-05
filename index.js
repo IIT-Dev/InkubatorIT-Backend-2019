@@ -2,6 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const user = require("./routes/user");
 const peoples = require("./routes/people");
@@ -10,7 +13,7 @@ const portofolios = require("./routes/portofolio");
 const app = express();
 
 mongoose
-  .connect("mongodb://localhost/iit")
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("Connected to MongoDB..."))
   .catch(err => console.log("Could not connect to MongoDB...", err));
 
