@@ -18,7 +18,6 @@ mongoose
   .catch(err => console.log("Could not connect to MongoDB...", err));
 
 const whitelist = [
-  "http://localhost:8000",
   "https://iit-client.herokuapp.com",
   "https://inkubatorit.com"
 ];
@@ -27,7 +26,7 @@ app.use(
   cors({
     credentials: true,
     origin(origin, callback) {
-      if (whitelist.indexOf(origin) !== -1) {
+      if (origin === undefined || whitelist.indexOf(origin) !== -1) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
