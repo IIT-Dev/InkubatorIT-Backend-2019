@@ -9,6 +9,7 @@ dotenv.config();
 const user = require("./routes/user");
 const peoples = require("./routes/people");
 const portofolios = require("./routes/portofolio");
+const client = require('./routes/client')
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use(express.urlencoded({ limit: "5mb" }));
 app.use("/user", user);
 app.use("/peoples", peoples);
 app.use("/portofolios", portofolios);
+app.use("/client", client);
 
 const port = process.env.PORT || 8080;
 
