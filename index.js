@@ -20,14 +20,17 @@ mongoose
 
 const whitelist = [
   "https://iit-client.herokuapp.com",
-  "https://inkubatorit.com"
+  "https://inkubatorit.com",
+  "http://localhost:8000", // FE dev
+  undefined, // Headless
 ];
 
 app.use(
   cors({
     credentials: true,
     origin(origin, callback) {
-      if (origin === undefined || whitelist.indexOf(origin) !== -1) {
+      console.log('origin: ', origin);
+      if (whitelist.indexOf(origin) !== -1) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
