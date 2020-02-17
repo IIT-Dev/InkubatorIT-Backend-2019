@@ -9,6 +9,8 @@
 2. Select this project (iit-server)
 3. In tab Overview, click arrow beside mLab MongoDB name
 
+** image is saved as base64
+
 ## Deploy
 
 1. Make sure you login in Heroku CLI as respective Inkubator IT account
